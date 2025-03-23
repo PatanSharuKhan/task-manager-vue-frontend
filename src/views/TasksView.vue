@@ -1,12 +1,13 @@
-<script setup>
+<script setup lang="ts">
   import { useTasksStore } from '@/stores/tasks';
 import { ref } from 'vue'
 
   const tasks = useTasksStore()
   const newTaskTitle = ref('')
-  const handleTitleChange = (e) => {
+  const handleTitleChange = (e: Event) => {
     e.preventDefault()
-    newTaskTitle.value = e.target.value
+    const targetEle = e.target as HTMLInputElement
+    newTaskTitle.value = targetEle.value
   }
 </script>
 
